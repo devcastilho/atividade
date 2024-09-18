@@ -1,0 +1,18 @@
+CREATE TABLE dev (
+  id_dev INT(11) NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  sobrenome VARCHAR(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  email VARCHAR(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  devweb ENUM('frontend', 'backend', 'fullstack') COLLATE utf8mb4_general_ci DEFAULT NULL,
+  senioridade VARCHAR(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  experiencia VARCHAR(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  SN_HTML VARCHAR(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  SN_CSS VARCHAR(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  SN_JAVASCRIPT VARCHAR(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  SN_PHP VARCHAR(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  SN_CSHARP VARCHAR(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  SN_PYTHON VARCHAR(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  SN_JAVA VARCHAR(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  SN_DELPHI VARCHAR(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (id_dev)
+)
