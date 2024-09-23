@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
+    <!-- Metadados -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Inicial</title>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="formulario.css"
+      media="screen"
+    />
+
+    <!--Título da página (aparece na aba)-->
+    <title>Óleos Essenciais</title>
   </head>
 
   <body>
-    <center>
-      <h1>Sistema de Cadastro de Pessoas - CRUD</h1>
-      <a href="formulario.html"
-        ><input type="button" value="Cadastrar Dev"
-      /></a>
-      <a href="visualiza_dev.php"
-        ><input type="button" value="Visualizar Dev"
-      /></a>
-    </center>
+    <div class="inicio">
+      <h1 id="titulo">Estoque de Óleos Essenciais</h1>
+    </div>
+    <div class="inicio">
+      <button
+        class="index"
+        type="button"
+        onclick="window.location.href='formulario.html';"
+      >
+        Incluir
+      </button>
+      <button
+        class="index"
+        type="button"
+        onclick="window.location.href='listar.php';"
+      >
+        Listar/Alterar
+      </button>
+    </div>
   </body>
 </html>

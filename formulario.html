@@ -1,146 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Metadados -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="pt-br">
 
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="formulario.css" media="screen">
+<head>
+  <!-- Metadados -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--Título da página (aparece na aba)-->
-    
-    <title>Primeira tela</title>
-  </head>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="formulario.css" media="screen">
+  <title>Cadastro de Estoque</title>
+</head>
 
-  <body>
-    <!-- Cabeçalho com título e substítulo (ambos com css de id "título")-->
-    <div>
-      <h1 id="titulo">Cadastro de Devs</h1>
-      <!--Título de nível 1 - maior que existe-->
-      <p id="subtítulo">Complete os campos com suas informações</p>
-      <!--Parágrafo para escrever textos-->
-      <br />
-      <!-- BROKE - DE QUEBRAR - serve para pular linha-->
-    </div>
-    
-    <!--Início do formulário-->
-    <form method="POST" action="cadastra_dev.php">
-      <fieldset class="grupo">
-        <!-- "Fieldset" é para aplicar no CSS depois, uma configuração de estilo para um várias tags, como a classe "Grupo". Sempre que estiver com esse fieldset, adotará o estilo do css para essa classe-->
-        <!--Campo do nome com legenda "nome" e css de classe "campo"-->
-        <div class="campo">
-          <label for="nome"><strong>Nome</strong></label>
-          <input type="text" name="nome" id="nome" required />
-          <!--Required é para obrigar o preenchimento do campo-->
-        </div>
-        <div class="campo">
-          <label for="sobrenome"><strong>Sobrenome</strong></label>
-          <input type="text" name="sobrenome" id="sobrenome" required />
-        </div>
-      </fieldset>
+<body>
+   <div class="inicio">
+     <h1>Adicione ao Estoque</h1>
+     <p>Preencha o formulário com os detalhes</p>
+     <br /> <!--quebra de linha-->
+   </div>
+   <!--Início do formulário-->
+   <form method="POST" action="add_estoque.php">
+       <div class="campo">
+         <label for="nome"><strong>Nome do óleo</strong></label><!--Campo do nome com legenda "nome"-->
+         <input type="text" name="nome" id="nome" required /><!--Required é para obrigar o preenchimento do campo-->
+       </div>
+       <div class="campo">
+         <label for="origem"><strong>Origem do óleo</strong></label>
+         <input type="text" name="origem" id="sobrenome" required />
+       </div>
+     <!--Div aberta fora da Fielset, ficando fora do retângulo que aparece na página. Lembrando que ainda está dentro do FORM-->
+       <div class="campo">
+       <label><strong>Qual o nível de dificuldade de extração?</strong></label>
+       <label>
+         <input type="radio" name="raridade" value="Abundante" checked/>Abundante
+       </label>
+       <label>
+         <input type="radio" name="raridade" value="Médio" />Médio
+       </label>
+       <label>
+         <input type="radio" name="raridade" value="Raro" />Raro
+       </label>
+     </div>
+     <!--Campo de forma de ingestão com 3 opções para escolha (select option) e css de classe "campo"-->
+     <div class="campo">
+       <label for="ingestao"><strong>Pode ser ingerido?</strong></label>
+       <select id="ingestao" name="ingestao" required> <!-- Tive que adicionar a classa "name" para que seja recebido no PHP-->
+         <option selected disabled value="">Selecione</option>
+         <option value="Não ingerir">Não ingerir</option>
+         <option value="Poucas gotas">Poucas gotas</option>
+         <option value="Sem restrição">Sem restrição</option>
+       </select>
+     </div>
+       
+     <fieldset class="grupo">
+         <!--Campo de tecnologias para escolha de 1 ou mais opções para marcar (checkbox) e css de id "check"-->
+         <div id="check">
+           <label><strong>Marque as notas que definem esse óleo:</strong></label>
+           <br/><br/>
+           <input type="checkbox" id="nota1" value="Cítricos"    name="nota1"/><b>Cítricos</b>: limão, laranja, bergamota <br/>
+           <input type="checkbox" id="nota2" value="Frutadas"    name="nota2"/><b>Frutadas</b>: maçã, pêssego, framboesa <br/>
+           <input type="checkbox" id="nota3" value="Verdes"      name="nota3"/><b>Verdes</b>: grama cortada, folhas frescas <br/>
+           <input type="checkbox" id="nota4" value="Florais"     name="nota4"/><b>Florais</b>: rosa, jasmim, lavanda <br/>
+           <input type="checkbox" id="nota5" value="Especiarias" name="nota5"/><b>Especiarias</b>: canela, cardamomo <br/>
+           <input type="checkbox" id="nota6" value="Frutadas"    name="nota6"/><b>Frutadas</b>: pera, pêssego <br/>
+           <input type="checkbox" id="nota7" value="Amadeiradas" name="nota7"/><b>Amadeiradas</b>: sândalo, cedro, vetiver <br/>
+           <input type="checkbox" id="nota8" value="Orientais"   name="nota8"/><b>Orientais</b>: baunilha, âmbar, incenso <br/>
+           <input type="checkbox" id="nota9" value="Musgosas"    name="nota9"/><b>Musgosas</b>: musgo de carvalho, musgo de pedra <br/>
+         </div>
+       </fieldset>
+       <!-- Caixa de texto -->
+       <div class="campo">
+         <br>
+         <label for="historia"><strong>Conte mais sobre este óleo: </strong></label><br>
+         <textarea rows="6" style="width: 26em"  id="historia" name="historia"></textarea>
+       </div>
+       <!-- Botão para enviar o formulário -->
+       <button class="botao" type="submit" onsubmit="">Enviar</button>
+       <!-- <button class="botao-voltar" href="index.html">Voltar</button> -->
+       <button class="cancelar" type="button" onclick="window.location.href='index.html';">Cancelar</button>
+   </form>
+ </div>  
+</body>
 
-      <!--Div aberta fora da Fielset, ficando fora do retângulo que aparece na página. Lembrando que ainda está dentro do FORM-->
-      <div class="campo">
-        <label for="email"><strong>Email</strong></label
-        ><!--o type email valida se o formato digitado está correto do tipo e-mail-->
-        <input type="email" name="email" id="email" required />
-      </div>
-      <div class="campo">
-        <label><strong>De qual lado da aplicação você desenvolve?</strong></label>        >
-        <label>
-          <input type="radio" name="devweb" value="frontend" checked/>Front-end
-        </label>
-        <label>
-          <input type="radio" name="devweb" value="backend" />Back-end
-        </label>
-        <label>
-          <input type="radio" name="devweb" value="fullstack" />Fullstack
-        </label>
-      </div>
-
-      <!--Campo de senioridade com 3 opções para escolha (select option) e css de classe "campo"-->
-      <div class="campo">
-        <label for="senioridade"><strong>Senioridade</strong></label>
-        <select id="senioridade" name="senioridade" required> <!-- Tive que adicionar a classa "name" para que seja recebido no PHP-->
-          <option selected disabled value="">Selecione</option>
-          <option value="Junior">Júnior</option>
-          <option value="Pleno">Pleno</option>
-          <option value="Senior">Senior</option>
-        </select>
-        </div>
-        
-        <fieldset class="grupo">
-          <!--Campo de tecnologias para escolha de 1 ou mais opções para marcar (checkbox) e css de id "check"-->
-          <div id="check">
-            <label><strong>Selecione as tecnologias que utiliza:</strong></label
-            ><br /><br />
-            <label>
-              <input
-                type="checkbox"
-                id="tecnologia1"
-                name="tecnologia1"
-                value="html"
-              />HTML
-            </label>
-            <input
-              type="checkbox"
-              id="tecnologia2"
-              name="tecnologia2"
-              value="css"
-            />CSS
-            <input
-              type="checkbox"
-              id="tecnologia3"
-              name="tecnologia3"
-              value="javascript"
-            />Javascript
-            <input
-              type="checkbox"
-              id="tecnologia4"
-              name="tecnologia4"
-              value="php"
-            />PHP
-            <input
-              type="checkbox"
-              id="tecnologia5"
-              name="tecnologia5"
-              value="c#"
-            />C#
-            <input
-              type="checkbox"
-              id="tecnologia6"
-              name="tecnologia6"
-              value="python"
-            />Python
-            <input
-              type="checkbox"
-              id="tecnologia7"
-              name="tecnologia7"
-              value="java"
-            />Java
-            <input
-              type="checkbox"
-              id="tecnologia8"
-              name="tecnologia8"
-              value="delphi"
-            />Delhpi
-          </div>
-        </fieldset>
-
-        <!-- Caixa de texto -->
-
-        <div class="campo">
-          <br>
-          <label for="experiencia"><strong>Conte um pouco mais sobre sua experiência: </strong></label><br>
-          <textarea rows="6" style="width: 26em"  id="experiencia" name="experiencia"></textarea>
-        </div>
-
-        <!-- Botão para enviar o formulário -->
-         <button class="botao" type="submit" onsubmit="">Enviar</button>
-         </form>
-      </div>
-    </form>
-    <button class="voltar" type="submit" onsubmit=""><a href="index.html">Voltar</a></button>
-  </body>
 </html>
